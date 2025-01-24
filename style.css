@@ -1,0 +1,174 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --text-color: white;
+  --bg-url: url(./assets/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(./assets/moon-stars.svg);
+}
+
+.light {
+  --text-color: black;
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/sun.svg);
+}
+
+body {
+  /*
+  background-image: url(./assets/bg-mobile.jpg);  /*puxa a imagem da pasta assets pra pagina da web
+  background-repeat: no-repeat; /*não repete a imagem varias vezes
+  background-position: top center; /*define a posição da imagem
+  background-size: cover; /*define que a imagem deve cobrir toda a imagem de acordo com o dispositivo
+  */
+
+  /*é possivel resumir todos esses comandos a um só*/ /*conhecido como shorthand ou atalho*/
+  background: var(--bg-url) no-repeat top center/cover;
+}
+
+body * {
+  /* o "*" sggnifica seletor universal*/
+  font-family: "Inter", serif;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+#container {
+  width: 360px;
+  margin: 56px auto 0px auto; /*funciona como um relógio, da direita pra esquerda: cima, direita, baixo, esquerda*/
+  /* margin-right: auto; * define a margem a direita
+  margin-left: auto; * define a margem a esquerda podem ser substituidos por um unico comando*/
+  padding: 0 24px;
+}
+
+/* profile */
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+
+#profile p {
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+#profile img {
+  display: block;
+  width: 112px;
+  margin: auto;
+}
+
+/* switch */
+
+#switch {
+  position: relative;
+  width: 64px;
+
+  margin: 4px auto;
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%; /* raio da borda 50% = esfera perfeita*/
+
+  position: absolute; /* sobreposição de camadas */
+  top: 50%;
+  right: 0;
+  left: 0;
+  z-index: 1; /* "andar como se fosse de prédio" */
+  transform: translateY(-50%);
+}
+
+.light #switch button {
+  right: 0;
+  left: initial; /* volta para a maneira inicial */
+}
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px); /* é necessário para outros navegadores */
+  border-radius: 9999px;
+}
+
+/* links */
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 0;
+}
+
+ul li a {
+  display: flex;
+  justify-content: center; /* alinha o conteudo ao meio */
+  align-items: center;
+
+  padding: 16px 24px;
+
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  text-decoration: none;
+
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+/*pseudo-selector, aplica efeitos quando se passa o mouse em cima*/
+ul li a:hover {
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
+}
+
+/*Social-links*/
+#social-links {
+  display: flex;
+  justify-content: center;
+  padding: 24px 0;
+  font-size: 24px;
+}
+
+#social-links a {
+  display: flex;
+  padding: 16px;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  border-radius: 50%;
+}
+
+#social-links a:hover {
+  background: var(--highlight-color);
+}
+
+/* Roda pé */
+
+footer {
+  padding: 24px 0;
+  text-align: center;
+  font-size: 14px;
+}
